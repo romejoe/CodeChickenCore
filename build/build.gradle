@@ -20,6 +20,7 @@ apply plugin: 'maven'
 
 
 repositories {
+    mavenLocal()
     flatDir {
         dirs 'libs'
     }
@@ -44,11 +45,11 @@ configurations {
 }
 
 dependencies {
-    //devLibs "codechicken:CodeChickenLib:${config.mc_version}-${config.ccl_version}:dev"
-    //obfLibs "codechicken:CodeChickenLib:${config.mc_version}-${config.ccl_version}:universal"
+    devLibs "codechicken:CodeChickenLib:${config.mc_version}-${config.ccl_version}:dev"
+    obfLibs "codechicken:CodeChickenLib:${config.mc_version}-${config.ccl_version}:universal"
     // Local Repository for testing
-    devLibs name: "CodeChickenLib-${config.mc_version}-${config.ccl_version}-dev"
-    obfLibs name: "CodeChickenLib-${config.mc_version}-${config.ccl_version}-universal"
+    //devLibs name: "CodeChickenLib-${config.mc_version}-${config.ccl_version}-dev"
+    //obfLibs name: "CodeChickenLib-${config.mc_version}-${config.ccl_version}-universal"
     configurations.compile.extendsFrom(configurations.devLibs)
 }
 
